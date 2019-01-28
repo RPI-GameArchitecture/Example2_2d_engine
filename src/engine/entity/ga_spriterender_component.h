@@ -17,6 +17,9 @@ public:
 
 	// construct a sprite with solid color rectangle
 	ga_spriterender_component(class ga_entity* ent, int w, int h, int r, int g, int b);
+
+	// construct a sprite by loading an image 
+	ga_spriterender_component(class ga_entity* ent, const char* path);
 	~ga_spriterender_component();
 
 	virtual void update(struct ga_frame_params* params) override;

@@ -1,7 +1,7 @@
 #include "ga_spriterender_component.h"
 #include "ga_entity.h"
 #include "framework/ga_drawcall.h"
-
+#include "SDL_Image.h"
 ga_spriterender_component::ga_spriterender_component(ga_entity* ent, int w, int h, int r, int g, int b) : ga_component(ent)
 {
 
@@ -20,6 +20,14 @@ ga_spriterender_component::ga_spriterender_component(ga_entity* ent, int w, int 
 	SDL_FillRect(_sprite_surface, &_rect, _color);
 }
 
+ga_spriterender_component::ga_spriterender_component(ga_entity* ent, const char* path) :  ga_component(ent)
+{
+	_sprite = ent->get_component<ga_sprite_component>();
+	SDL_Surface* tmp_surface = IMG_Load(path);
+
+
+
+}
 ga_spriterender_component::~ga_spriterender_component()
 {
 	// free the surface
