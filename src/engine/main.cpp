@@ -45,11 +45,8 @@ int main(int argc, const char** argv)
 		std::string name = "Hello from entity ";
 		name += char(i) + 'A';
 		auto sprite = new ga_sprite_component(&ents[i], i * 20, 50);
-		auto render = new ga_spriterender_component(&ents[i], 15, 15, 255, 0, 0);
+		auto render = new ga_spriterender_component(&ents[i], "Fruit.png");
 		auto item = new item_component(&ents[i]);
-		ents[i].add_component(sprite);
-		ents[i].add_component(render);
-		ents[i].add_component(item);
 		sim->add_entity(&ents[i]);
 	}
 	

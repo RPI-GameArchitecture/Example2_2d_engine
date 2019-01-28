@@ -2,6 +2,7 @@
 #include "ga_entity.h"
 #include "framework/ga_drawcall.h"
 #include "SDL_Image.h"
+#include <SDL.h>
 ga_spriterender_component::ga_spriterender_component(ga_entity* ent, int w, int h, int r, int g, int b) : ga_component(ent)
 {
 
@@ -24,6 +25,23 @@ ga_spriterender_component::ga_spriterender_component(ga_entity* ent, const char*
 {
 	_sprite = ent->get_component<ga_sprite_component>();
 	SDL_Surface* tmp_surface = IMG_Load(path);
+	// input surface, format, flags
+
+	if (tmp_surface)
+	{
+		_sprite_surface = SDL_ConvertSurfaceFormat(tmp_surface, SDL_PIXELFORMAT_RGBA8888, 0);
+	}
+	else
+	{
+		_sprite_surface = nullptr;
+	}
+
+	if (_sprite != nullptr && _sprite_surface != nullptr)
+	{
+		_sprite->_rect.w = _sprite_surface->w;
+		_sprite->_rect.h = _sprite_surface->h;
+	}
+	SDL_FreeSurface(tmp_surface);
 
 
 
