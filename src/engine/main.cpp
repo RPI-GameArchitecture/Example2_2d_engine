@@ -46,6 +46,12 @@ int main(int argc, const char** argv)
 		name += char(i) + 'A';
 		auto sprite = new ga_sprite_component(&ents[i], i * 20, 50);
 		auto render = new ga_spriterender_component(&ents[i], "Fruit.png");
+		render->_rect.x = rand() % 4 * 64;
+		render->_rect.y = rand() % 4 * 64;
+		render->_rect.w = 64;
+		render->_rect.h = 64;
+		sprite->_rect.w = 64;
+		sprite->_rect.h = 64;
 		auto item = new item_component(&ents[i]);
 		sim->add_entity(&ents[i]);
 	}
