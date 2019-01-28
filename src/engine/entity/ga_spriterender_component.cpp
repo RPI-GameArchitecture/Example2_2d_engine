@@ -15,7 +15,7 @@ ga_spriterender_component::ga_spriterender_component(ga_entity* ent, int w, int 
 	_rect.h = h;
 
 	_color = SDL_MapRGB(_sprite_surface->format, r, g, b);
-	SDL_FillRect(_sprite_surface, _rect, _color);
+	SDL_FillRect(_sprite_surface, &_rect, _color);
 }
 
 ga_spriterender_component::~ga_spriterender_component()
@@ -27,7 +27,7 @@ ga_spriterender_component::~ga_spriterender_component()
 	}
 }
 
-ga_spriterender_component::update(ga_frameparams* params)
+void ga_spriterender_component::update(struct ga_frame_params* params)
 {
 	ga_drawcall draw;
 	draw._surf = _sprite_surface;

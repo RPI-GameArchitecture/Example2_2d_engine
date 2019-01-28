@@ -312,6 +312,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_component.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_entity.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_hello_component.cpp" />
+    <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_sprite_component.cpp" />
+    <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_spriterender_component.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\framework\ga_input.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\framework\ga_output.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\framework\ga_sim.cpp" />
