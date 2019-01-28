@@ -26,7 +26,10 @@ ga_spriterender_component::ga_spriterender_component(ga_entity* ent, const char*
 	_sprite = ent->get_component<ga_sprite_component>();
 	SDL_Surface* tmp_surface = IMG_Load(path);
 	// input surface, format, flags
-
+	_rect.x = 0;
+	_rect.y = 0;
+	_rect.w = 0;
+	_rect.h = 0;
 	if (tmp_surface)
 	{
 		_sprite_surface = SDL_ConvertSurfaceFormat(tmp_surface, SDL_PIXELFORMAT_RGBA8888, 0);
@@ -38,10 +41,12 @@ ga_spriterender_component::ga_spriterender_component(ga_entity* ent, const char*
 
 	if (_sprite != nullptr && _sprite_surface != nullptr)
 	{
+		_rect.w= _sprite_surface->w;
+		_rect.h = _sprite_surface->h;
 		_sprite->_rect.w = _sprite_surface->w;
 		_sprite->_rect.h = _sprite_surface->h;
 	}
-	SDL_FreeSurface(tmp_surface);
+	//SDL_FreeSurface(tmp_surface);
 
 
 
