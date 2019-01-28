@@ -27,6 +27,18 @@ public:
 
 	void update(struct ga_frame_params* params);
 
+	template <typename T> T* get_component()
+	{
+		for (auto& c : _components)
+		{
+			T* result = dynamic_cast<T*>(c);
+			if (result)
+			{
+				return result;
+			}
+		}
+		return nullptr;
+	}
 private:
 	std::vector<class ga_component*> _components;
 };
