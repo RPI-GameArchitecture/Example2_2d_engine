@@ -19,6 +19,46 @@
 
 #include "entity/item_component.h"
 #include "entity/player_component.h"
+
+
+
+void create_sprites(ga_sim* sim)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		ga_entity* ent = new ga_entity();
+		std::string name = "Sprite ";
+		name += char('A' + i);
+		auto sprite = new ga_sprite_component(ent, i * 30, rand() % 720);
+		auto render = new ga_spriterender_component(ent, "Fruit.png");
+		render->_rect.w = 64;
+		render->_rect.h = 64;
+		render->_rect.x = rand() % 4 * 64;
+		render->_rect.y = rand() % 4 * 64;
+		sprite->_rect.w = 64;
+		sprite->_rect.h = 64;
+		auto item = new item_component(ent);
+		sim->add_entity(ent);
+	}
+}
+void create_player(ga_sim* sim)
+{
+	// create one player entity
+
+	ga_entity* player = new ga_entity();
+	auto sprite = new ga_sprite_component(player, 800, 500);
+
+	auto render = new ga_spriterender_component(player,"slime_monster_spritesheet.png");
+	render->_rect.w = 97;
+	render->_rect.h = 90;
+	render->_rect.x = 145;
+	render->_rect.y = 275;
+
+	auto ctrl = new player_component(player);
+	sim->add_entity(player);
+}
+
+
 // fix for symbol error caused by SDL
 
 #undef main 
@@ -36,37 +76,10 @@ int main(int argc, const char** argv)
 	extern void ga_queue_tests();
 	ga_queue_tests();
 
-	// Create test entities.
-
+	// Create entities
 	
-	ga_entity ents[10];
-	for (int i=0;i<10;i++)
-	{
-		std::string name = "Hello from entity ";
-		name += char(i) + 'A';
-		auto sprite = new ga_sprite_component(&ents[i], i * 20, 50);
-		auto render = new ga_spriterender_component(&ents[i], "Fruit.png");
-		render->_rect.x = rand() % 4 * 64;
-		render->_rect.y = rand() % 4 * 64;
-		render->_rect.w = 64;
-		render->_rect.h = 64;
-		sprite->_rect.w = 64;
-		sprite->_rect.h = 64;
-		auto item = new item_component(&ents[i]);
-		sim->add_entity(&ents[i]);
-	}
-	
-
-	ga_entity player;
-	auto sprite = new ga_sprite_component(&player, 20, 20);
-	auto render = new ga_spriterender_component(&player, "slime_monster_spritesheet.png");
-	render->_rect.w = 97;
-	render->_rect.h = 90;
-	render->_rect.x = 145;
-	render->_rect.y = 275;
-
-	auto player_c = new player_component(&player);
-	sim->add_entity(&player);
+	create_sprites(sim);
+	create_player(sim);
 	
 	// Main loop:
 	while (true)
