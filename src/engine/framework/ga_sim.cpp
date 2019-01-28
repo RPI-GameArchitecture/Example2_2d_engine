@@ -37,15 +37,6 @@ void ga_sim::destroy_entity(ga_entity* ent)
 	_destroy_list.push_back(ent);
 }
 
-void ga_sim::post_update(ga_frame_params* params)
-{
-	for (ga_entity* ent : _destroy_list)
-	{
-		delete ent;
-		_entities.erase(std::remove(_entities.begin(), _entities.end(), ent), _entities.end());
-	}
-	_destroy_list.clear();
-}
 
 std::vector<ga_entity*>* ga_sim::get_entities()
 {
@@ -59,6 +50,8 @@ void ga_sim::update(ga_frame_params* params)
 	// 2. The data for each job; an entity and the frame_params.
 
 	auto decls = static_cast<ga_job_decl_t*>(alloca(sizeof(ga_job_decl_t) * _entities.size()));
+
+	params->_sim = this;
 
 	struct update_data_t
 	{
@@ -84,4 +77,14 @@ void ga_sim::update(ga_frame_params* params)
 	int32_t update_counter;
 	ga_job::run(decls, int(_entities.size()), &update_counter);
 	ga_job::wait(&update_counter);
+}
+
+void ga_sim::post_update(ga_frame_params* params)
+{
+	for (ga_entity* ent : _destroy_list)
+	{
+		delete ent;
+		_entities.erase(std::remove(_entities.begin(), _entities.end(), ent), _entities.end());
+	}
+	_destroy_list.clear();
 }

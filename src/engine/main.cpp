@@ -85,6 +85,8 @@ int main(int argc, const char** argv)
 
 		// Draw to screen.
 		output->update(&params);
+
+		sim->post_update(&params);
 	}
 
 	delete output;

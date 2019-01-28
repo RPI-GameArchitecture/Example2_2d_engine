@@ -60,6 +60,8 @@ enum ga_button_t
 */
 struct ga_frame_params
 {
+	class ga_sim* _sim;
+
 	// Data emitted by input stage:
 	std::chrono::high_resolution_clock::time_point _current_time;
 	std::chrono::high_resolution_clock::duration _delta_time;
