@@ -46,6 +46,9 @@
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\engine\entity\item_component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\CMakeLists.txt" />

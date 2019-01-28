@@ -309,6 +309,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\engine\entity\item_component.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_component.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_entity.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_hello_component.cpp" />

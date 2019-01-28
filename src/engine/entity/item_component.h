@@ -1,6 +1,7 @@
 #pragma once
 
 #include "entity/ga_component.h"
+#include "ga_sprite_component.h"
 class item_component : public ga_component
 {
 public:
@@ -13,6 +14,6 @@ public:
 private:
 	int _dx;
 	int _dy;
-	class ga_sprite_component* _sprite;
+	ga_sprite_component* _sprite;
 
 };

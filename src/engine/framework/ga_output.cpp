@@ -26,8 +26,9 @@ ga_output::ga_output(void* win) : _window(win)
 	SDL_GetWindowSize(static_cast<SDL_Window* >(_window), &width, &height);
 
 	glViewport(0, 0, width, height);
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LESS);
+	glDisable(GL_DEPTH_TEST);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
 }
 
 ga_output::~ga_output()
@@ -42,19 +43,19 @@ void ga_output::update(ga_frame_params* params)
 	glViewport(0, 0, width, height);
 
 	// Clear viewport:
-	glDepthMask(GL_TRUE);
-	glClearColor(0.0, 0.0, 0.0, 1.0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	SDL_Surface* screen_surface = SDL_GetWindowSurface(static_cast<SDL_Window*>(_window));
+	SDL_FillRect(screen_surface, NULL, SDL_MapRGBA(screen_surface->format, 128, 255, 128, 255));
+
 
 	// Draw everything:
 	for (auto& d : params->_drawcalls)
 	{
-		std::cout << "Draw: " << d._name << std::endl;
+		SDL_BlitSurface(d._surf, &d._src_rect, screen_surface, &d._dst_rect);
 	}
 
 	GLenum error = glGetError();
 	assert(error == GL_NONE);
 
 	// Swap frame buffers:
-	SDL_GL_SwapWindow(static_cast<SDL_Window* >(_window));
+	SDL_UpdateWindowSurface(static_cast<SDL_Window*>(_window));
 }

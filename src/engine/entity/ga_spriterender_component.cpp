@@ -4,6 +4,8 @@
 
 ga_spriterender_component::ga_spriterender_component(ga_entity* ent, int w, int h, int r, int g, int b) : ga_component(ent)
 {
+
+	_sprite = ent->get_component<ga_sprite_component>();
 	// construct a surface with given width, height, and color
 
 	// flags,width,height,bit depth,channel masks (0=default)

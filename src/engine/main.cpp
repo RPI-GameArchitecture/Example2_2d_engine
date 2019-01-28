@@ -17,7 +17,10 @@
 #include "entity/ga_sprite_component.h"
 #include "entity/ga_spriterender_component.h"
 
+#include "entity/item_component.h"
+
 // fix for symbol error caused by SDL
+
 #undef main 
 
 int main(int argc, const char** argv)
@@ -42,8 +45,10 @@ int main(int argc, const char** argv)
 		name += char(i) + 'A';
 		auto sprite = new ga_sprite_component(&ents[i], i * 20, 50);
 		auto render = new ga_spriterender_component(&ents[i], 15, 15, 255, 0, 0);
+		auto item = new item_component(&ents[i]);
 		ents[i].add_component(sprite);
 		ents[i].add_component(render);
+		ents[i].add_component(item);
 		sim->add_entity(&ents[i]);
 	}
 

@@ -1,5 +1,6 @@
 #include "item_component.h"
-
+#include "ga_sprite_component.h"
+#include "ga_entity.h"
 item_component::item_component(ga_entity* ent) : ga_component(ent)
 {
 	_sprite = ent->get_component<ga_sprite_component>();
@@ -12,7 +13,7 @@ item_component::~item_component()
 
 }
 
-void update(ga_frame_params* params)
+void item_component::update(ga_frame_params* params)
 {
 	if (_sprite != nullptr)
 	{
