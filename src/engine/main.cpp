@@ -16,6 +16,9 @@
 #include "entity/ga_entity.h"
 #include "entity/ga_hello_component.h"
 
+// fix for symbol error caused by SDL
+#undef main 
+
 int main(int argc, const char** argv)
 {
 	ga_job::startup(0xffff, 256, 256);
