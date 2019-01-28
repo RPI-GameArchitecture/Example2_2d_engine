@@ -24,7 +24,12 @@ public:
 	void add_entity(class ga_entity* ent);
 
 	void update(struct ga_frame_params* params);
+	void post_update(struct ga_frame_params* params);
 
+	std::vector<class ga_entity*>* get_entities();
+
+	void destroy_entity(class ga_entity* ent);
 private:
 	std::vector<class ga_entity*> _entities;
+	std::vector<class ga_entity*> _destroy_list;
 };

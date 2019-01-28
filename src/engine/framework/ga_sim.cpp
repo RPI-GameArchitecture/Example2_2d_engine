@@ -7,8 +7,9 @@
 ** This file is distributed under the MIT License. See LICENSE.txt.
 */
 
+#include <algorithm>
 #include "ga_sim.h"
-
+#include "framework/ga_frame_params.h"
 #include "ga_compiler_defines.h"
 
 #include "entity/ga_entity.h"
@@ -31,6 +32,25 @@ void ga_sim::add_entity(ga_entity* ent)
 	_entities.push_back(ent);
 }
 
+void ga_sim::destroy_entity(ga_entity* ent)
+{
+	_destroy_list.push_back(ent);
+}
+
+void ga_sim::post_update(ga_frame_params* params)
+{
+	for (ga_entity* ent : _destroy_list)
+	{
+		delete ent;
+		_entities.erase(std::remove(_entities.begin(), _entities.end(), ent), _entities.end());
+	}
+	_destroy_list.clear();
+}
+
+std::vector<ga_entity*>* ga_sim::get_entities()
+{
+	return &_entities;
+}
 void ga_sim::update(ga_frame_params* params)
 {
 	// Create jobs that update all entities in parallel (one job per entity).
