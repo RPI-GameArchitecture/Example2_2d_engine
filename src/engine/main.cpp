@@ -30,6 +30,10 @@ void create_sprites(ga_sim* sim)
 		std::string name = "Sprite ";
 		name += char('A' + i);
 		auto sprite = new ga_sprite_component(ent, i * 30, rand() % 720);
+
+		sprite->_collision_type = 1;
+		sprite->_collision_mask = 0;
+
 		auto render = new ga_spriterender_component(ent, "Fruit.png");
 		render->_rect.w = 64;
 		render->_rect.h = 64;
@@ -47,6 +51,8 @@ void create_player(ga_sim* sim)
 
 	ga_entity* player = new ga_entity();
 	auto sprite = new ga_sprite_component(player, 800, 500);
+	sprite->_collision_type = 2;
+	sprite->_collision_mask = 1;
 
 	auto render = new ga_spriterender_component(player,"slime_monster_spritesheet.png");
 	render->_rect.w = 97;

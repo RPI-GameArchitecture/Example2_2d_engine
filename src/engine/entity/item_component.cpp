@@ -22,7 +22,7 @@ void item_component::update(ga_frame_params* params)
 		int x = _sprite->_x + _dx;
 		if (x > 1280)
 		{
-			params->_sim->destroy_entity(_entity);
+			x -= 1280;
 		}
 		
 		int y = _sprite->_y + _dy;
