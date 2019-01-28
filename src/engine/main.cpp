@@ -59,7 +59,12 @@ int main(int argc, const char** argv)
 
 	ga_entity player;
 	auto sprite = new ga_sprite_component(&player, 20, 20);
-	auto render = new ga_spriterender_component(&player, 15, 15, 0, 0, 255);
+	auto render = new ga_spriterender_component(&player, "slime_monster_spritesheet.png");
+	render->_rect.w = 97;
+	render->_rect.h = 90;
+	render->_rect.x = 145;
+	render->_rect.y = 275;
+
 	auto player_c = new player_component(&player);
 	sim->add_entity(&player);
 	
