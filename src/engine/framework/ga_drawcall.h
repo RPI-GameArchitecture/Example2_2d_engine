@@ -10,7 +10,7 @@
 */
 
 #include <string>
-
+#include <SDL.h>
 /*
 ** A draw emitted from the simulation phase and rendered in the output phase.
 ** @see ga_frame_params
@@ -18,4 +18,7 @@
 struct ga_drawcall
 {
 	std::string _name;
+	SDL_Surface *_surf;
+	SDL_Rect _src_rect;
+	SDL_Rect _dst_rect;
 };
