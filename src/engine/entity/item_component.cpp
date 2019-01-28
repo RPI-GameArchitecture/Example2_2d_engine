@@ -20,7 +20,10 @@ void item_component::update(ga_frame_params* params)
 	if (_sprite != nullptr)
 	{
 		int x = _sprite->_x + _dx;
-		if (x > 1280) x -= 1280;
+		if (x > 1280)
+		{
+			params->_sim->destroy_entity(_entity);
+		}
 		
 		int y = _sprite->_y + _dy;
 		if (y > 720) y -= 720;
