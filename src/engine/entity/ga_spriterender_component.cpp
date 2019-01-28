@@ -46,7 +46,7 @@ ga_spriterender_component::ga_spriterender_component(ga_entity* ent, const char*
 		_sprite->_rect.w = _sprite_surface->w;
 		_sprite->_rect.h = _sprite_surface->h;
 	}
-	//SDL_FreeSurface(tmp_surface);
+	SDL_FreeSurface(tmp_surface);
 
 
 
