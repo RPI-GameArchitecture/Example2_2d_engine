@@ -14,7 +14,8 @@
 #include "jobs/ga_job.h"
 
 #include "entity/ga_entity.h"
-#include "entity/ga_hello_component.h"
+#include "entity/ga_sprite_component.h"
+#include "entity/ga_spriterender_component.h"
 
 // fix for symbol error caused by SDL
 #undef main 
@@ -33,13 +34,17 @@ int main(int argc, const char** argv)
 	ga_queue_tests();
 
 	// Create test entities.
+
 	ga_entity ents[10];
-	for (auto& e : ents)
+	for (int i=0;i<10;i++)
 	{
 		std::string name = "Hello from entity ";
-		name += char(&e - ents) + 'A';
-		auto hello_component = new ga_hello_component(&e, name.c_str());
-		sim->add_entity(&e);
+		name += char(i) + 'A';
+		auto sprite = new ga_sprite_component(&ents[i], i * 20, 50);
+		auto render = new ga_spriterender_component(&ents[i], 15, 15, 255, 0, 0);
+		ents[i].add_component(sprite);
+		ents[i].add_component(render);
+		sim->add_entity(&ents[i]);
 	}
 
 	// Main loop:
