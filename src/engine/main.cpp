@@ -18,7 +18,7 @@
 #include "entity/ga_spriterender_component.h"
 
 #include "entity/item_component.h"
-
+#include "entity/player_component.h"
 // fix for symbol error caused by SDL
 
 #undef main 
@@ -38,6 +38,7 @@ int main(int argc, const char** argv)
 
 	// Create test entities.
 
+	
 	ga_entity ents[10];
 	for (int i=0;i<10;i++)
 	{
@@ -51,7 +52,14 @@ int main(int argc, const char** argv)
 		ents[i].add_component(item);
 		sim->add_entity(&ents[i]);
 	}
+	
 
+	ga_entity player;
+	auto sprite = new ga_sprite_component(&player, 20, 20);
+	auto render = new ga_spriterender_component(&player, 15, 15, 0, 0, 255);
+	auto player_c = new player_component(&player);
+	sim->add_entity(&player);
+	
 	// Main loop:
 	while (true)
 	{

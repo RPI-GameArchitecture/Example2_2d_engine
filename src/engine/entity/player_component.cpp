@@ -1,16 +1,16 @@
 #include "player_component.h"
 #include "ga_entity.h"
 #include "ga_sprite_component.h"
-#include "../framework/ga_frame_params.h"
+#include "framework/ga_frame_params.h"
 
-player_component::player_component(ga_entity* ent) : public ga_component(ent)
+player_component::player_component(ga_entity* ent) :  ga_component(ent)
 {
 	_sprite = ent->get_component<ga_sprite_component>();
 	_xspeed = 5;
 	_yspeed = 5;
 }
 
-player_component::~ga_component()
+player_component::~player_component()
 {
 
 }
