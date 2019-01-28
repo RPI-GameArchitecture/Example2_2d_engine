@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Libraries\Documents\Game Architecture\Examples\2d_engine\build\ga-win64\SDL2-2.0.7\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\..\3rdparty\SDL2-2.0.7\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\3rdparty\glew-2.1.0\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Libraries\Documents\Game Architecture\Examples\2d_engine\build\ga-win64\SDL2-2.0.7\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\..\3rdparty\SDL2-2.0.7\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\3rdparty\glew-2.1.0\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\3rdparty\SDL2_image-2.0.4\include;D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) $(CMAKE_CXX_FLAGS)</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -310,6 +310,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\engine\entity\item_component.cpp" />
+    <ClCompile Include="..\..\src\engine\entity\player_component.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_component.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_entity.cpp" />
     <ClCompile Include="D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\engine\entity\ga_hello_component.cpp" />
