@@ -111,8 +111,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>SDL2-2.0.7\Debug\SDL2d.lib;glew32s.lib;opengl32.lib;user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;dinput8.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:/Libraries/Documents/Game Architecture/Examples/2d_engine/src/engine/../3rdparty/glew-2.1.0/lib/Release/x64;D:/Libraries/Documents/Game Architecture/Examples/2d_engine/src/engine/../3rdparty/glew-2.1.0/lib/Release/x64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2-2.0.7\Debug\SDL2d.lib;SDL2_image.lib;glew32s.lib;opengl32.lib;user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;dinput8.lib;kernel32.lib;winspool.lib;shell32.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Libraries\Documents\Game Architecture\Examples\2d_engine\src\3rdparty\SDL2_image-2.0.4\lib\x64;D:/Libraries/Documents/Game Architecture/Examples/2d_engine/src/engine/../3rdparty/glew-2.1.0/lib/Release/x64;D:/Libraries/Documents/Game Architecture/Examples/2d_engine/src/engine/../3rdparty/glew-2.1.0/lib/Release/x64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64 /ignore:4098 /ignore:4099</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
