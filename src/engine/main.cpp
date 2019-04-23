@@ -24,7 +24,7 @@
 
 void create_sprites(ga_sim* sim)
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		ga_entity* ent = new ga_entity();
 		std::string name = "Sprite ";
